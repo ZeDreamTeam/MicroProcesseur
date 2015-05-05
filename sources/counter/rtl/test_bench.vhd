@@ -41,7 +41,7 @@ ARCHITECTURE behavior OF test_bench IS
  
     -- Component Declaration for the Unit Under Test (UUT)
  
-    COMPONENT ALU
+    COMPONENT alu
     PORT(
          A : IN  std_logic_vector(7 downto 0);
          B : IN  std_logic_vector(7 downto 0);

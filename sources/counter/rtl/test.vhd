@@ -31,13 +31,13 @@ use IEEE.std_logic_unsigned.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity ALU is
+entity alu is
     Port ( A : in  STD_LOGIC_VECTOR(7 downto 0);
            B : in STD_LOGIC_VECTOR(7 downto 0);
 	  S : out  STD_LOGIC_VECTOR(7 downto 0));
-end ALU;
+end alu;
 
-architecture Behavioral of ALU is
+architecture Behavioral of alu is
 	signal Ctrl_Alu : STD_LOGIC_VECTOR(2 downto 0);
 	signal Flags : STD_LOGIC_VECTOR(4 downto 0);
 begin
@@ -45,16 +45,14 @@ begin
 	begin
 		wait until Ctrl_Alu'event;
 		
-		if Ctrl_Alu = 0x01 then
-			S = B + A;
-		elsif Ctrl_Alu = 0x02 then
-			S = B - A;
-		elsif Ctrl_Alu = 0x03 then
-			S = B * A;
-		elsif Ctrl_Alu = 0x04 then
-			S = B / A
-		end if			
-	end process
+		if Ctrl_Alu=X"01" then
+			S <= B + A;
+		elsif Ctrl_Alu = X"02" then
+			S <= B - A;
+		elsif Ctrl_Alu = X"03" then
+			S <= B * A;
+		end if;
+	end process;
 	
 		
 
