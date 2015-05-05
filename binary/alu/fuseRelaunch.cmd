@@ -1,0 +1,1 @@
+-incremental -lib "secureip" -o "/home/djemaa/workspace/ProjetInfo/exampleXilinx/binary/alu/alu_beh.isim" -prj "/home/djemaa/workspace/ProjetInfo/exampleXilinx/binary/alu/alu_beh.isim.prj" "work.test_bench" 

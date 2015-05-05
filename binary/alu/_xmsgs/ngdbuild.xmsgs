@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="error" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;leds(0)&quot; LOC = AC22;&gt; [/home/djemaa/workspace/ProjetInfo/exampleXilinx/binary/alu/alu.ucf(7)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">leds(0)</arg>&quot; not found.  Please verify that:
+1. The specified design element actually exists in the original design.
+2. The specified object is spelled correctly in the constraint source file.
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;leds(0)&quot; LOC = AC22;&gt; [/home/djemaa/workspace/ProjetInfo/exampleXilinx/binary/alu/alu.ucf(7)]&apos; could not be found and so the Locate constraint will be removed.
+</msg>
+
+<msg type="error" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;leds(1)&quot; LOC = AC24;&gt; [/home/djemaa/workspace/ProjetInfo/exampleXilinx/binary/alu/alu.ucf(8)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">leds(1)</arg>&quot; not found.  Please verify that:
+1. The specified design element actually exists in the original design.
+2. The specified object is spelled correctly in the constraint source file.
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;leds(1)&quot; LOC = AC24;&gt; [/home/djemaa/workspace/ProjetInfo/exampleXilinx/binary/alu/alu.ucf(8)]&apos; could not be found and so the Locate constraint will be removed.
+</msg>
+
+<msg type="error" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;leds(2)&quot; LOC = AE22;&gt; [/home/djemaa/workspace/ProjetInfo/exampleXilinx/binary/alu/alu.ucf(9)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">leds(2)</arg>&quot; not found.  Please verify that:
+1. The specified design element actually exists in the original design.
+2. The specified object is spelled correctly in the constraint source file.
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;leds(2)&quot; LOC = AE22;&gt; [/home/djemaa/workspace/ProjetInfo/exampleXilinx/binary/alu/alu.ucf(9)]&apos; could not be found and so the Locate constraint will be removed.
+</msg>
+
+<msg type="error" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;leds(3)&quot; LOC = AE23;&gt; [/home/djemaa/workspace/ProjetInfo/exampleXilinx/binary/alu/alu.ucf(10)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">leds(3)</arg>&quot; not found.  Please verify that:
+1. The specified design element actually exists in the original design.
+2. The specified object is spelled correctly in the constraint source file.
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;leds(3)&quot; LOC = AE23;&gt; [/home/djemaa/workspace/ProjetInfo/exampleXilinx/binary/alu/alu.ucf(10)]&apos; could not be found and so the Locate constraint will be removed.
+</msg>
+
+<msg type="error" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;leds(4)&quot; LOC = AB23;&gt; [/home/djemaa/workspace/ProjetInfo/exampleXilinx/binary/alu/alu.ucf(11)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">leds(4)</arg>&quot; not found.  Please verify that:
+1. The specified design element actually exists in the original design.
+2. The specified object is spelled correctly in the constraint source file.
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;leds(4)&quot; LOC = AB23;&gt; [/home/djemaa/workspace/ProjetInfo/exampleXilinx/binary/alu/alu.ucf(11)]&apos; could not be found and so the Locate constraint will be removed.
+</msg>
+
+<msg type="error" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;leds(5)&quot; LOC = AG23;&gt; [/home/djemaa/workspace/ProjetInfo/exampleXilinx/binary/alu/alu.ucf(12)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">leds(5)</arg>&quot; not found.  Please verify that:
+1. The specified design element actually exists in the original design.
+2. The specified object is spelled correctly in the constraint source file.
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;leds(5)&quot; LOC = AG23;&gt; [/home/djemaa/workspace/ProjetInfo/exampleXilinx/binary/alu/alu.ucf(12)]&apos; could not be found and so the Locate constraint will be removed.
+</msg>
+
+<msg type="error" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;leds(6)&quot; LOC = AE24;&gt; [/home/djemaa/workspace/ProjetInfo/exampleXilinx/binary/alu/alu.ucf(13)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">leds(6)</arg>&quot; not found.  Please verify that:
+1. The specified design element actually exists in the original design.
+2. The specified object is spelled correctly in the constraint source file.
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;leds(6)&quot; LOC = AE24;&gt; [/home/djemaa/workspace/ProjetInfo/exampleXilinx/binary/alu/alu.ucf(13)]&apos; could not be found and so the Locate constraint will be removed.
+</msg>
+
+<msg type="error" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;leds(7)&quot; LOC = AD24;&gt; [/home/djemaa/workspace/ProjetInfo/exampleXilinx/binary/alu/alu.ucf(14)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">leds(7)</arg>&quot; not found.  Please verify that:
+1. The specified design element actually exists in the original design.
+2. The specified object is spelled correctly in the constraint source file.
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;leds(7)&quot; LOC = AD24;&gt; [/home/djemaa/workspace/ProjetInfo/exampleXilinx/binary/alu/alu.ucf(14)]&apos; could not be found and so the Locate constraint will be removed.
+</msg>
+
+<msg type="error" file="ConstraintSystem" num="58" delta="new" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;leds(*)&quot; IOSTANDARD = LVCMOS25 |&gt; [/home/djemaa/workspace/ProjetInfo/exampleXilinx/binary/alu/alu.ucf(16)]</arg>: <arg fmt="%s" index="2">NET &quot;leds(*)&quot;</arg> does not match any design objects.
+</msg>
+
+<msg type="error" file="ConstraintSystem" num="58" delta="new" >Constraint <arg fmt="%s" index="1">&lt;SLEW = SLOW |&gt; [/home/djemaa/workspace/ProjetInfo/exampleXilinx/binary/alu/alu.ucf(16)]</arg>: <arg fmt="%s" index="2">NET &quot;leds(*)&quot;</arg> does not match any design objects.
+</msg>
+
+<msg type="error" file="ConstraintSystem" num="58" delta="new" >Constraint <arg fmt="%s" index="1">&lt;DRIVE = 2;&gt; [/home/djemaa/workspace/ProjetInfo/exampleXilinx/binary/alu/alu.ucf(16)]</arg>: <arg fmt="%s" index="2">NET &quot;leds(*)&quot;</arg> does not match any design objects.
+</msg>
+
+<msg type="error" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;sw(0)&quot; LOC = D22;&gt; [/home/djemaa/workspace/ProjetInfo/exampleXilinx/binary/alu/alu.ucf(19)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">sw(0)</arg>&quot; not found.  Please verify that:
+1. The specified design element actually exists in the original design.
+2. The specified object is spelled correctly in the constraint source file.
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;sw(0)&quot; LOC = D22;&gt; [/home/djemaa/workspace/ProjetInfo/exampleXilinx/binary/alu/alu.ucf(19)]&apos; could not be found and so the Locate constraint will be removed.
+</msg>
+
+<msg type="error" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;sw(1)&quot; LOC = C22;&gt; [/home/djemaa/workspace/ProjetInfo/exampleXilinx/binary/alu/alu.ucf(20)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">sw(1)</arg>&quot; not found.  Please verify that:
+1. The specified design element actually exists in the original design.
+2. The specified object is spelled correctly in the constraint source file.
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;sw(1)&quot; LOC = C22;&gt; [/home/djemaa/workspace/ProjetInfo/exampleXilinx/binary/alu/alu.ucf(20)]&apos; could not be found and so the Locate constraint will be removed.
+</msg>
+
+<msg type="error" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;sw(2)&quot; LOC = L21;&gt; [/home/djemaa/workspace/ProjetInfo/exampleXilinx/binary/alu/alu.ucf(21)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">sw(2)</arg>&quot; not found.  Please verify that:
+1. The specified design element actually exists in the original design.
+2. The specified object is spelled correctly in the constraint source file.
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;sw(2)&quot; LOC = L21;&gt; [/home/djemaa/workspace/ProjetInfo/exampleXilinx/binary/alu/alu.ucf(21)]&apos; could not be found and so the Locate constraint will be removed.
+</msg>
+
+<msg type="error" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;sw(3)&quot; LOC = L20;&gt; [/home/djemaa/workspace/ProjetInfo/exampleXilinx/binary/alu/alu.ucf(22)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">sw(3)</arg>&quot; not found.  Please verify that:
+1. The specified design element actually exists in the original design.
+2. The specified object is spelled correctly in the constraint source file.
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;sw(3)&quot; LOC = L20;&gt; [/home/djemaa/workspace/ProjetInfo/exampleXilinx/binary/alu/alu.ucf(22)]&apos; could not be found and so the Locate constraint will be removed.
+</msg>
+
+<msg type="error" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;sw(4)&quot; LOC = C18;&gt; [/home/djemaa/workspace/ProjetInfo/exampleXilinx/binary/alu/alu.ucf(23)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">sw(4)</arg>&quot; not found.  Please verify that:
+1. The specified design element actually exists in the original design.
+2. The specified object is spelled correctly in the constraint source file.
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;sw(4)&quot; LOC = C18;&gt; [/home/djemaa/workspace/ProjetInfo/exampleXilinx/binary/alu/alu.ucf(23)]&apos; could not be found and so the Locate constraint will be removed.
+</msg>
+
+<msg type="error" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;sw(5)&quot; LOC = B18;&gt; [/home/djemaa/workspace/ProjetInfo/exampleXilinx/binary/alu/alu.ucf(24)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">sw(5)</arg>&quot; not found.  Please verify that:
+1. The specified design element actually exists in the original design.
+2. The specified object is spelled correctly in the constraint source file.
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;sw(5)&quot; LOC = B18;&gt; [/home/djemaa/workspace/ProjetInfo/exampleXilinx/binary/alu/alu.ucf(24)]&apos; could not be found and so the Locate constraint will be removed.
+</msg>
+
+<msg type="error" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;sw(6)&quot; LOC = K22;&gt; [/home/djemaa/workspace/ProjetInfo/exampleXilinx/binary/alu/alu.ucf(25)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">sw(6)</arg>&quot; not found.  Please verify that:
+1. The specified design element actually exists in the original design.
+2. The specified object is spelled correctly in the constraint source file.
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;sw(6)&quot; LOC = K22;&gt; [/home/djemaa/workspace/ProjetInfo/exampleXilinx/binary/alu/alu.ucf(25)]&apos; could not be found and so the Locate constraint will be removed.
+</msg>
+
+<msg type="error" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;sw(7)&quot; LOC = K21;&gt; [/home/djemaa/workspace/ProjetInfo/exampleXilinx/binary/alu/alu.ucf(26)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">sw(7)</arg>&quot; not found.  Please verify that:
+1. The specified design element actually exists in the original design.
+2. The specified object is spelled correctly in the constraint source file.
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;sw(7)&quot; LOC = K21;&gt; [/home/djemaa/workspace/ProjetInfo/exampleXilinx/binary/alu/alu.ucf(26)]&apos; could not be found and so the Locate constraint will be removed.
+</msg>
+
+<msg type="error" file="ConstraintSystem" num="58" delta="new" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;sw(*)&quot; IOSTANDARD = LVCMOS25 |&gt; [/home/djemaa/workspace/ProjetInfo/exampleXilinx/binary/alu/alu.ucf(28)]</arg>: <arg fmt="%s" index="2">NET &quot;sw(*)&quot;</arg> does not match any design objects.
+</msg>
+
+<msg type="error" file="ConstraintSystem" num="58" delta="new" >Constraint <arg fmt="%s" index="1">&lt;SLEW = SLOW |&gt; [/home/djemaa/workspace/ProjetInfo/exampleXilinx/binary/alu/alu.ucf(28)]</arg>: <arg fmt="%s" index="2">NET &quot;sw(*)&quot;</arg> does not match any design objects.
+</msg>
+
+<msg type="error" file="ConstraintSystem" num="58" delta="new" >Constraint <arg fmt="%s" index="1">&lt;DRIVE = 2;&gt; [/home/djemaa/workspace/ProjetInfo/exampleXilinx/binary/alu/alu.ucf(28)]</arg>: <arg fmt="%s" index="2">NET &quot;sw(*)&quot;</arg> does not match any design objects.
+</msg>
+
+<msg type="error" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;bt(0)&quot; LOC = G26;&gt; [/home/djemaa/workspace/ProjetInfo/exampleXilinx/binary/alu/alu.ucf(31)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">bt(0)</arg>&quot; not found.  Please verify that:
+1. The specified design element actually exists in the original design.
+2. The specified object is spelled correctly in the constraint source file.
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;bt(0)&quot; LOC = G26;&gt; [/home/djemaa/workspace/ProjetInfo/exampleXilinx/binary/alu/alu.ucf(31)]&apos; could not be found and so the Locate constraint will be removed.
+</msg>
+
+<msg type="error" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;bt(1)&quot; LOC = G17;&gt; [/home/djemaa/workspace/ProjetInfo/exampleXilinx/binary/alu/alu.ucf(32)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">bt(1)</arg>&quot; not found.  Please verify that:
+1. The specified design element actually exists in the original design.
+2. The specified object is spelled correctly in the constraint source file.
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;bt(1)&quot; LOC = G17;&gt; [/home/djemaa/workspace/ProjetInfo/exampleXilinx/binary/alu/alu.ucf(32)]&apos; could not be found and so the Locate constraint will be removed.
+</msg>
+
+<msg type="error" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;bt(2)&quot; LOC = A19;&gt; [/home/djemaa/workspace/ProjetInfo/exampleXilinx/binary/alu/alu.ucf(33)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">bt(2)</arg>&quot; not found.  Please verify that:
+1. The specified design element actually exists in the original design.
+2. The specified object is spelled correctly in the constraint source file.
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;bt(2)&quot; LOC = A19;&gt; [/home/djemaa/workspace/ProjetInfo/exampleXilinx/binary/alu/alu.ucf(33)]&apos; could not be found and so the Locate constraint will be removed.
+</msg>
+
+<msg type="error" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;bt(3)&quot; LOC = A18;&gt; [/home/djemaa/workspace/ProjetInfo/exampleXilinx/binary/alu/alu.ucf(34)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">bt(3)</arg>&quot; not found.  Please verify that:
+1. The specified design element actually exists in the original design.
+2. The specified object is spelled correctly in the constraint source file.
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;bt(3)&quot; LOC = A18;&gt; [/home/djemaa/workspace/ProjetInfo/exampleXilinx/binary/alu/alu.ucf(34)]&apos; could not be found and so the Locate constraint will be removed.
+</msg>
+
+<msg type="error" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;bt(4)&quot; LOC = H17;&gt; [/home/djemaa/workspace/ProjetInfo/exampleXilinx/binary/alu/alu.ucf(35)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">bt(4)</arg>&quot; not found.  Please verify that:
+1. The specified design element actually exists in the original design.
+2. The specified object is spelled correctly in the constraint source file.
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="0" >A target design object for the Locate constraint &apos;&lt;NET &quot;bt(4)&quot; LOC = H17;&gt; [/home/djemaa/workspace/ProjetInfo/exampleXilinx/binary/alu/alu.ucf(35)]&apos; could not be found and so the Locate constraint will be removed.
+</msg>
+
+<msg type="error" file="ConstraintSystem" num="58" delta="new" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;bt(*)&quot; IOSTANDARD = LVCMOS25 |&gt; [/home/djemaa/workspace/ProjetInfo/exampleXilinx/binary/alu/alu.ucf(37)]</arg>: <arg fmt="%s" index="2">NET &quot;bt(*)&quot;</arg> does not match any design objects.
+</msg>
+
+<msg type="error" file="ConstraintSystem" num="58" delta="new" >Constraint <arg fmt="%s" index="1">&lt;SLEW = SLOW |&gt; [/home/djemaa/workspace/ProjetInfo/exampleXilinx/binary/alu/alu.ucf(37)]</arg>: <arg fmt="%s" index="2">NET &quot;bt(*)&quot;</arg> does not match any design objects.
+</msg>
+
+<msg type="error" file="ConstraintSystem" num="58" delta="new" >Constraint <arg fmt="%s" index="1">&lt;DRIVE = 2;&gt; [/home/djemaa/workspace/ProjetInfo/exampleXilinx/binary/alu/alu.ucf(37)]</arg>: <arg fmt="%s" index="2">NET &quot;bt(*)&quot;</arg> does not match any design objects.
+</msg>
+
+<msg type="error" file="ConstraintSystem" num="59" delta="new" >Constraint <arg fmt="%s" index="1">&lt;NET &quot;BT&lt;2&gt;&quot; CLOCK_DEDICATED_ROUTE = FALSE;&gt; [/home/djemaa/workspace/ProjetInfo/exampleXilinx/binary/alu/alu.ucf(38)]</arg>: <arg fmt="%s" index="2">NET</arg> &quot;<arg fmt="%s" index="3">BT&lt;2&gt;</arg>&quot; not found.  Please verify that:
+1. The specified design element actually exists in the original design.
+2. The specified object is spelled correctly in the constraint source file.
+</msg>
+
+</messages>
+
