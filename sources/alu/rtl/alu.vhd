@@ -36,7 +36,7 @@ entity ALU is
 		CLK : 		in 	STD_LOGIC;
 		A : 		in  STD_LOGIC_VECTOR(7 downto 0);
         B : 		in 	STD_LOGIC_VECTOR(7 downto 0);
-		Ctrl_Alu : 	in STD_LOGIC_VECTOR(1 downto 0);
+		Ctrl_Alu : 	in STD_LOGIC_VECTOR(2 downto 0);
 		S : 		out STD_LOGIC_VECTOR(7 downto 0);
 		N : 		out STD_LOGIC;
 		O : 		out STD_LOGIC;
@@ -52,9 +52,9 @@ begin
 	begin
 		if(rising_edge(CLK)) then
 			if Ctrl_Alu = X"01" then
-				S <= B + A;
+				S <= A + B;
 			elsif Ctrl_Alu = X"02" then
-				S <= B - A;
+				S <= A - B;
 
 			end if;
 		end if;			

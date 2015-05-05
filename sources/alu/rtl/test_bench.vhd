@@ -46,7 +46,7 @@ ARCHITECTURE behavior OF test_bench IS
       CLK :       in  STD_LOGIC;
       A :         in  STD_LOGIC_VECTOR(7 downto 0);
       B :         in  STD_LOGIC_VECTOR(7 downto 0);
-      Ctrl_Alu :  in  STD_LOGIC_VECTOR(1 downto 0);
+      Ctrl_Alu :  in  STD_LOGIC_VECTOR(2 downto 0);
       S :         out STD_LOGIC_VECTOR(7 downto 0);
       N :         out STD_LOGIC;
       O :         out STD_LOGIC;
@@ -60,7 +60,7 @@ ARCHITECTURE behavior OF test_bench IS
    signal CLK :       STD_LOGIC := '0';
    signal A :         STD_LOGIC_VECTOR(7 downto 0) := (others => '0');
    signal B :         STD_LOGIC_VECTOR(7 downto 0) := (others => '0');
-   signal Ctrl_Alu :  STD_LOGIC_VECTOR(1 downto 0) := (others => '0');
+   signal Ctrl_Alu :  STD_LOGIC_VECTOR(2 downto 0) := (others => '0');
  	--Outputs
    signal S : STD_LOGIC_VECTOR(7 downto 0);
    signal N : STD_LOGIC;
@@ -68,7 +68,7 @@ ARCHITECTURE behavior OF test_bench IS
    signal Z : STD_LOGIC;
    signal C : STD_LOGIC;
 
-
+   constant CLK_period : time := 10 ns;
  
 BEGIN
  
@@ -84,12 +84,21 @@ BEGIN
           Z => Z,
           C => C
         );
-
+   CLK_process : process
+   begin
+        CLK <= not CLK;
+        wait for CLK_period/2;
+   end process;
  
    -- Stimulus process
    stim_proc: process
-   begin		
-    wait;
+   begin
+    -- Testing add.
+    wait for CLK_period*10;
+      Ctrl_Alu <= "010";
+      A <= X"02";
+      B <= X"01";
+
    end process;
 
 END;
