@@ -1,58 +1,64 @@
+----------------------------------------------------------------------------------
+--Company: 
+-- Engineer: 
+-- 
+-- Create Date:    11:00:23 04/28/2015 
+-- Design Name: 
+-- Module Name:    bibou - Behavioral 
+-- Project Name: 
+-- Target Devices: 
+-- Tool versions: 
+-- Description: 
+--
+-- Dependencies: 
+--
+-- Revision: 
+-- Revision 0.01 - File Created
+-- Additional Comments: 
+--
+----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.STD_LOGIC_ARITH.ALL;
-use IEEE.STD_LOGIC_UNSIGNED.ALL;
+use IEEE.std_logic_arith.ALL;
+use IEEE.std_logic_unsigned.ALL;
 
-entity system is
-  port (CLK : in STD_LOGIC;
-        SW : in STD_LOGIC_VECTOR(7 downto 0);
-        BT : in STD_LOGIC_VECTOR(4 downto 0);
-        LEDS : out STD_LOGIC_VECTOR(7 downto 0));
+-- Uncomment the following library declaration if using
+-- arithmetic functions with Signed or Unsigned values
+--use IEEE.NUMERIC_STD.ALL;
 
-end system;
+-- Uncomment the following library declaration if instantiating
+-- any Xilinx primitives in this code.
+--library UNISIM;
+--use UNISIM.VComponents.all;
 
-architecture Behavioral of system is
-  -- Composants
-  component cpt8 Port(CLK : in STD_LOGIC;                       
-                      RST : in STD_LOGIC;
-                      EN : in STD_LOGIC;
-                      SENS : in STD_LOGIC;
-                      LOAD : in STD_LOGIC;
-                      Din : in STD_LOGIC_VECTOR(7 downto 0);
-                      Dout : out STD_LOGIC_VECTOR(7 downto 0));
-  end component;
+entity ALU is
+    Port ( A : in  STD_LOGIC_VECTOR(7 downto 0);
+           B : in STD_LOGIC_VECTOR(7 downto 0);
+	  S : out  STD_LOGIC_VECTOR(7 downto 0));
+end ALU;
 
-  -- Cablage avec des records
-  type cpt8_in_out is record
-    CLK : STD_LOGIC;                    
-    RST : STD_LOGIC;
-    EN : STD_LOGIC;
-    SENS : STD_LOGIC;
-    LOAD : STD_LOGIC;
-    Din : STD_LOGIC_VECTOR(7 downto 0);
-    Dout : STD_LOGIC_VECTOR(7 downto 0);
-  end record;
-
-  -- Instanciation
-  signal cpt_con : cpt8_in_out;
-
+architecture Behavioral of ALU is
+	signal Ctrl_Alu : STD_LOGIC_VECTOR(2 downto 0);
+	signal Flags : STD_LOGIC_VECTOR(4 downto 0);
 begin
-  -- Composants
-  cpt : cpt8 port map(cpt_con.CLK,
-                      cpt_con.RST,
-                      cpt_con.EN,
-                      cpt_con.SENS,
-                      cpt_con.LOAD,
-                      cpt_con.Din,
-                      cpt_con.Dout);
+	process
+	begin
+		wait until Ctrl_Alu'event;
+		
+		if Ctrl_Alu = 0x01 then
+			S = B + A;
+		elsif Ctrl_Alu = 0x02 then
+			S = B - A;
+		elsif Ctrl_Alu = 0x03 then
+			S = B * A;
+		elsif Ctrl_Alu = 0x04 then
+			S = B / A
+		end if			
+	end process
+	
+		
 
-  -- Connexion
-  cpt_con.CLK <= BT(2);
-  cpt_con.RST <= BT(0);
-  LEDS <= cpt_con.Dout;
-  cpt_con.Din <= SW;
-  cpt_con.SENS <= '1';
-  cpt_con.EN <= '1';
-  cpt_con.LOAD <= BT(1);
 
 end Behavioral;
+
+

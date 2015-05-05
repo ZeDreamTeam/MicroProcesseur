@@ -27,6 +27,8 @@
 --------------------------------------------------------------------------------
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
+use IEEE.std_logic_arith.ALL;
+use IEEE.std_logic_unsigned.ALL;
  
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -39,55 +41,38 @@ ARCHITECTURE behavior OF test_bench IS
  
     -- Component Declaration for the Unit Under Test (UUT)
  
-    COMPONENT system
+    COMPONENT ALU
     PORT(
-         CLK : IN  std_logic;
-         SW : IN  std_logic_vector(7 downto 0);
-         BT : IN  std_logic_vector(4 downto 0);
-         LEDS : OUT  std_logic_vector(7 downto 0)
+         A : IN  std_logic_vector(7 downto 0);
+         B : IN  std_logic_vector(7 downto 0);
+         S : OUT  std_logic_vector(7 downto 0);
         );
     END COMPONENT;
     
 
    --Inputs
-   signal CLK : std_logic := '0';
-   signal SW : std_logic_vector(7 downto 0) := (others => '0');
-   signal BT : std_logic_vector(4 downto 0) := (others => '0');
+   signal A : std_logic_vector(7 downto 0) := (others => '0');
+   signal B : std_logic_vector(7 downto 0) := (others => '0');
 
  	--Outputs
-   signal LEDS : std_logic_vector(7 downto 0);
+   signal S : std_logic_vector(7 downto 0);
 
-   -- Clock period definitions
-   constant CLK_period : time := 10 ns;
  
 BEGIN
  
 	-- Instantiate the Unit Under Test (UUT)
-   uut: system PORT MAP (
-          CLK => CLK,
-          SW => SW,
-          BT => BT,
-          LEDS => LEDS
+   uut: ALU PORT MAP (
+          A => A,
+          B => B,
+          S => S,
         );
 
-   -- Clock process definitions
-   CLK_process :process
-   begin
-		CLK <= '0';
-		wait for CLK_period/2;
-		CLK <= '1';
-		wait for CLK_period/2;
-   end process;
  
-
    -- Stimulus process
    stim_proc: process
    begin		
       -- hold reset state for 100 ns.
       wait for 100 ns;	
-
-      wait for CLK_period*10;
-
       -- insert stimulus here 
 
       wait;

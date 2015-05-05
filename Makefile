@@ -30,7 +30,7 @@ all: targets simulations
 ################################## GLOBALS  ####################################
 
 CORES_DIR := ./sources/cores
-XILINX := /home/bmorgan/Xilinx/14.7/ISE_DS/ISE
+XILINX := /usr/local/Xilinx134/13.4/ISE_DS/ISE
 XILINX_SRC := $(XILINX)/verilog/src
 
 ################################## INCLUDES ####################################
