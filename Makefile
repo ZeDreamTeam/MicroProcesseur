@@ -103,7 +103,7 @@ targets: $(TARGETS)
 	@cat $^ > $@
 
 # The project to load
-load: binary/counter/system.bit
+load: binary/alu/system.bit
 	@echo [LOD] $<
 	@./impact.sh $(dir $<)impact.batch $(realpath $<) && cd $(dir $<) && impact \
 		-batch impact.batch > impact.batch.out
