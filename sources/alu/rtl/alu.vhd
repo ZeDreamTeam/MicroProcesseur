@@ -46,23 +46,26 @@ entity ALU is
 end ALU;
 
 architecture Behavioral of ALU is
-
+	signal tmp : STD_LOGIC_VECTOR(15 downto 0);
 begin
-	process(CLK)
-	begin
-		if(rising_edge(CLK)) then
-			if Ctrl_Alu = X"01" then
-				S <= A + B;
-			elsif Ctrl_Alu = X"02" then
-				S <= A - B;
+	--S <= A + B when (Ctrl_Alu = X"01") else
+	--	A - B when (Ctrl_Alu = X"02");
+	tmp <= (X"00" & A) + B when (Ctrl_Alu = X"01") else
+		(X"00" & A)- B when (Ctrl_Alu = X"02");
 
-			end if;
-		end if;			
-	end process;
+	Z <= '1' when (tmp = X"0000") else
+		'0' ;
+	N <= '1' when (Ctrl_Alu = X"02" and B > A) else 
+		'0' ;
 	
-		
 
+	O <= '1' when (tmp > X"00FF" and Ctrl_Alu /= X"02") else
+		 '0' ;
 
+	C <= '1' when (Ctrl_Alu = X"01" and tmp > X"00FF") else
+		 '0' ;
+
+	S <= tmp(7 downto 0);
 end Behavioral;
 
 

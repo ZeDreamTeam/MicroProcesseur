@@ -95,10 +95,33 @@ BEGIN
    begin
     -- Testing add.
     wait for CLK_period*10;
-      Ctrl_Alu <= "010";
-      A <= X"02";
+      Ctrl_Alu <= "001";
+      A <= X"09";
       B <= X"01";
 
+    -- Testing simple substraction
+    wait for CLK_period*10;
+      Ctrl_Alu <= "010";
+      A <= X"0F";
+      B <= X"05";
+
+    --Testing sub N flag
+    wait for CLK_period*10;
+      Ctrl_Alu <= "010";
+      A <= X"02";
+      B <= X"05";
+
+    -- Testing sub Z flag
+    wait for CLK_period*10;
+      Ctrl_Alu <= "010";
+      A <= X"02";
+      B <= X"02";
+
+    -- Testing add C flag
+    wait for CLK_period*10;
+      Ctrl_Alu <= "001";
+      A <= X"FF";
+      B <= X"10";
    end process;
 
 END;
