@@ -48,8 +48,6 @@ end ALU;
 architecture Behavioral of ALU is
 	signal tmp : STD_LOGIC_VECTOR(15 downto 0);
 begin
-	--S <= A + B when (Ctrl_Alu = X"01") else
-	--	A - B when (Ctrl_Alu = X"02");
 	tmp <= (X"00" & A) + B when (Ctrl_Alu = X"01") else
 		(X"00" & A)- B when (Ctrl_Alu = X"02") else
 		A * B when (Ctrl_Alu = X"03");
