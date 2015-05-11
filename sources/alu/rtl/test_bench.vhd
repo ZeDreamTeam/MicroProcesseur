@@ -93,6 +93,23 @@ BEGIN
    -- Stimulus process
    stim_proc: process
    begin
+    -- Testing multiplication
+    wait for CLK_period*10;
+      Ctrl_Alu <= "011";
+      A <= X"02";
+      B <= X"05";
+    -- Testing mult with overflows
+    wait for CLK_period*10;
+      Ctrl_Alu <= "011";
+      A <= X"90";
+      B <= X"02";
+
+    -- Testing huge mult with overflows
+    wait for CLK_period*10;
+      Ctrl_Alu <= "011";
+      A <= X"FA";
+      B <= X"FB";
+
     -- Testing add.
     wait for CLK_period*10;
       Ctrl_Alu <= "001";
