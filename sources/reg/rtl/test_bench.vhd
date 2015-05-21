@@ -41,7 +41,7 @@ ARCHITECTURE behavior OF test_bench IS
  
     -- Component Declaration for the Unit Under Test (UUT)
  
-  COMPONENT reg_bench is
+  COMPONENT Reg is
     port(
       CLK   :     in STD_LOGIC;
       RST   :   in STD_LOGIC;
@@ -75,7 +75,7 @@ ARCHITECTURE behavior OF test_bench IS
 BEGIN
 
   -- Instantiate the Unit Under Test (UUT)
- uut: REG_bench PORT MAP (
+ uut: Reg PORT MAP (
           ADR_A => ADR_A,
           ADR_B => ADR_B,
           ADR_W => ADR_W,

@@ -5,7 +5,7 @@ d		:= $(dir)
 dir	:= $(d)/cores
 include	$(dir)/rules.mk
 
-dir := $(d)/reg_bench
+dir := $(d)/reg
 include $(dir)/rules.mk
 
 dir	:= $(d)/alu

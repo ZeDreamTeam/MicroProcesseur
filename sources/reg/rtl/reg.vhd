@@ -33,7 +33,7 @@ use IEEE.std_logic_unsigned.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity REG_bench is
+entity Reg is
 	port(
 		CLK 	: 		in STD_LOGIC;
 		RST 	:		in STD_LOGIC;
@@ -45,9 +45,9 @@ entity REG_bench is
 		QA 		: 		out STD_LOGIC_VECTOR(7 downto 0);
 		QB 		: 		out STD_LOGIC_VECTOR(7 downto 0)
 	);
-end REG_bench;
+end Reg;
 
-architecture Behavioral of REG_bench is
+architecture Behavioral of Reg is
 	type regb is array (15 downto 0) of STD_LOGIC_VECTOR(7 downto 0);
 	signal registers : regb;
 begin
