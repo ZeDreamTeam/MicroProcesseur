@@ -5,6 +5,9 @@ d		:= $(dir)
 dir	:= $(d)/cores
 include	$(dir)/rules.mk
 
+dir := $(d)/rom
+include $(dir)/rules.mk
+
 dir := $(d)/ram
 include $(dir)/rules.mk
 
