@@ -11,8 +11,8 @@ endef
 # .bit is the only one really needed, we put the others in order to keep them
 # after the build, for debugging purpose
 define GEN_TARGETS
-	$(1).ngc $(1).prj \
-		$(1).xst
+	$(1).bit $(1).routed.ncd $(1).ncd $(1).ngd $(1).ngc $(1).ucf $(1).prj \
+		$(1).xst $(1).pcf
 endef
 
 define SIM_2_RUN
@@ -46,34 +46,34 @@ include	$(dir)/rules.mk
 
 targets: $(TARGETS)
 
-# %.load: %.bit
-# 	@echo [LOD] $<
-# 	@./impact.sh $(dir $<)impact.batch $(realpath $<) && cd $(dir $<) && impact \
-# 		-batch impact.batch &> impact.batch.out
+%.load: %.bit
+	@echo [LOD] $<
+	@./impact.sh $(dir $<)impact.batch $(realpath $<) && cd $(dir $<) && impact \
+		-batch impact.batch &> impact.batch.out
 
-# %.bit: %.routed.ncd
-# 	@mkdir -p $(dir $@)
-# 	@echo [BIT] $@ \> $@.out
-# 	@cd $(dir $@) && bitgen -g LCK_cycle:6 -g Binary:Yes -g DriveDone:Yes \
-# 		-w $(realpath $<) $(abspath $@) $(patsubst %.bit, %.pcf, $(abspath $@)) \
-# 		&> $(abspath $@).out
+%.bit: %.routed.ncd
+	@mkdir -p $(dir $@)
+	@echo [BIT] $@ \> $@.out
+	@cd $(dir $@) && bitgen -g LCK_cycle:6 -g Binary:Yes -g DriveDone:Yes \
+		-w $(realpath $<) $(abspath $@) $(patsubst %.bit, %.pcf, $(abspath $@)) \
+		&> $(abspath $@).out
 
-# %.routed.ncd: %.ncd 
-# 	@mkdir -p $(dir $@)
-# 	@echo [RTE] $@ \> $@.out
-# 	@cd $(dir $@) && par -mt 4 -ol high -w $(realpath $^) $(abspath $@) &> \
-# 		$(abspath $@).out
+%.routed.ncd: %.ncd 
+	@mkdir -p $(dir $@)
+	@echo [RTE] $@ \> $@.out
+	@cd $(dir $@) && par -mt 4 -ol high -w $(realpath $^) $(abspath $@) &> \
+		$(abspath $@).out
 
-# %.ncd: %.ngd
-# 	@mkdir -p $(dir $@)
-# 	@echo [NCD] $@ \> $@.out
-# 	@cd $(dir $@) && map -mt 4 -ol high -t 20 -w $(realpath $^) &> $(abspath \
-# 		$@).out
+%.ncd: %.ngd
+	@mkdir -p $(dir $@)
+	@echo [NCD] $@ \> $@.out
+	@cd $(dir $@) && map -mt 4 -ol high -t 20 -w $(realpath $^) &> $(abspath \
+		$@).out
 
-# %.ngd: %.ucf %.ngc
-# 	@mkdir -p $(dir $@)
-# 	@echo [NGD] $@ \> $@.out
-# 	@cd $(dir $@) && ngdbuild -uc $(realpath $^) &> $(abspath $@).out
+%.ngd: %.ucf %.ngc
+	@mkdir -p $(dir $@)
+	@echo [NGD] $@ \> $@.out
+	@cd $(dir $@) && ngdbuild -uc $(realpath $^) &> $(abspath $@).out
 
 %.ngc: %.xst
 	@mkdir -p $(dir $@)

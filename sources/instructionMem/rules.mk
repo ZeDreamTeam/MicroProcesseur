@@ -10,7 +10,7 @@ SRC_VERILOG_$(d) 	:=
 PKG_$(d) 				 	:= xc6slx16-3-csg324
 
 # Top module
-TOP_$(d)				 	:= reg
+TOP_$(d)				 	:= instructionMem
 
 include $(d)/sources.mk
 
