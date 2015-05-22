@@ -14,8 +14,8 @@ include $(dir)/rules.mk
 dir := $(d)/reg
 include $(dir)/rules.mk
 
-
-
+dir := $(d)/pipeline
+include $(dir)/rules.mk
 
 dir	:= $(d)/alu
 include	$(dir)/rules.mk
