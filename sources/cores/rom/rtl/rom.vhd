@@ -17,10 +17,9 @@
 -- Additional Comments: 
 --
 ----------------------------------------------------------------------------------
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.std_logic_arith.ALL;
-use IEEE.std_logic_unsigned.ALL;
+library ieee ;
+    use ieee.std_logic_1164.all ;
+    use ieee.numeric_std.all ;
 
 
 
@@ -37,7 +36,7 @@ entity Rom is
     generic(
         MAX_WORDS : positive := 256;
         WORD_SIZE : positive := 32
-    );
+    ); 
 
     port(
         CLK     :       in STD_LOGIC;
@@ -51,12 +50,14 @@ architecture Behavioral of Rom is
     subtype word is std_logic_vector(WORD_SIZE-1 downto 0);
     type word_list is array(0 to MAX_WORDS-1) of word;
     
-    signal memory : word_list := (0 => X"ACDCCAFE", others => X"00000000");
+    signal memory : word_list := (0 => X"06020411", 1=>X"00000000",2=>X"00000000",3=>X"00000000",4=>X"05040211", others => X"00000000");
 
 begin
     process(CLK)
     begin
-        ROUT <= memory(conv_integer(unsigned(ADR)));
+        if(rising_edge(CLK)) then
+            ROUT <= memory(to_integer(unsigned(ADR)));
+        end if;
     end process;
 
 

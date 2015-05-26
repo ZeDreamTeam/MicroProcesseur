@@ -42,10 +42,7 @@ ARCHITECTURE behavior OF test_bench IS
     -- Component Declaration for the Unit Under Test (UUT)
  
   COMPONENT system is
-
-  port(
-        CLK     :       in STD_LOGIC
-    );
+    port(CLK     :       in STD_LOGIC);
   end COMPONENT;
     
    --Inputs
@@ -56,16 +53,8 @@ ARCHITECTURE behavior OF test_bench IS
 BEGIN
 
   -- Instantiate the Unit Under Test (UUT)
- uut: system GENERIC MAP (
-        MAX_WORDS => MAX_WORDS,
-        WORD_SIZE => WORD_SIZE
-    ) PORT MAP (
-          CLK => CLK,
-          RST => RST,
-          RW => RW,
-          ADR => ADR,
-          RIN => RIN,
-          ROUT => ROUT
+ uut: system PORT MAP (
+          CLK => CLK
         );
    CLK_process : process
    begin
@@ -78,25 +67,6 @@ BEGIN
    begin
     -- Writing in @0 et @1
     wait for CLK_period*10;
-      RIN <= X"FF";
-      ADR <= X"00";
-      RW <= '0';
-    wait for CLK_period*10;
-      RIN <= X"D0";
-      ADR <= X"01";
-      RW <= '0';
-    -- Reading @1
-    wait for CLK_period*10;
-      ADR <= X"01";
-      RW <= '1';
-
-    -- Testing RST
-    wait for CLK_period*10;
-      RST <= '1';
-    wait for CLK_period*10;
-      RST <= '0';
-
-
    end process;
 
 END;

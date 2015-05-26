@@ -42,7 +42,7 @@ entity system is
 end system;
 
 architecture Behavioral of system is
-
+    signal ip : STD_LOGIC_VECTOR(7 downto 0) := (others => '0');
     component pipeline  port(   CLK :       in  STD_LOGIC;
                                 AIN :       in  STD_LOGIC_VECTOR(7 downto 0);
                                 BIN :       in  STD_LOGIC_VECTOR(7 downto 0);
@@ -75,17 +75,17 @@ architecture Behavioral of system is
                         C :         out STD_LOGIC);
   end component;
 
-    component rom     port( CLK     :       in STD_LOGIC;
+    component rom  port( CLK     :       in STD_LOGIC;
                             ADR     :       in STD_LOGIC_VECTOR(7 downto 0);
-                            ROUT    :       out STD_LOGIC_VECTOR(WORD_SIZE-1 downto 0));
+                            ROUT    :       out STD_LOGIC_VECTOR(31 downto 0));
   end component;
 
     component ram port( CLK     :       in STD_LOGIC;
                         RST     :       in STD_LOGIC;
                         RW      :       in STD_LOGIC;
                         ADR     :       in STD_LOGIC_VECTOR(7 downto 0);
-                        RIN     :       in STD_LOGIC_VECTOR(WORD_SIZE-1 downto 0);
-                        ROUT    :       out STD_LOGIC_VECTOR(WORD_SIZE-1 downto 0));
+                        RIN     :       in STD_LOGIC_VECTOR(7 downto 0);
+                        ROUT    :       out STD_LOGIC_VECTOR(7 downto 0));
   end component;
 
 
@@ -118,14 +118,14 @@ architecture Behavioral of system is
     RST :  STD_LOGIC;
     RW  :  STD_LOGIC;
     ADR :  STD_LOGIC_VECTOR(7 downto 0);
-    RIN :  STD_LOGIC_VECTOR(WORD_SIZE-1 downto 0);
-    ROUT:  STD_LOGIC_VECTOR(WORD_SIZE-1 downto 0);
+    RIN :  STD_LOGIC_VECTOR(7 downto 0);
+    ROUT:  STD_LOGIC_VECTOR(7 downto 0);
   end record;
 
   type romT is record
     CLK : STD_LOGIC;
     ADR : STD_LOGIC_VECTOR(7 downto 0);
-    ROUT: STD_LOGIC_VECTOR(WORD_SIZE-1 downto 0);
+    ROUT: STD_LOGIC_VECTOR(31 downto 0);
   end record;
 
     type aluT is record
@@ -180,6 +180,15 @@ lexmem : pipeline port map(  exmem.CLK,
                             exmem.BOUT,
                             exmem.COUT,
                             exmem.OPOUT);
+lmemre : pipeline port map( memre.CLK,
+                            memre.AIN,
+                            memre.BIN,
+                            memre.CIN,
+                            memre.OPIN,
+                            memre.AOUT,
+                            memre.BOUT,
+                            memre.COUT,
+                            memre.OPOUT);
 
 lrom : rom port map(    mRom.CLK, 
                         mRom.ADR, 
@@ -221,15 +230,17 @@ lreg : reg port map(    mReg.CLK,
     mReg.CLK <=CLK;
     mAlu.CLK <= CLK;
 
+    mRom.ADR <= ip;
 
-    lidi.AIN <= mRom.ROUT(7 downto 0);
-    lidi.OPIN <= mRom.ROUT(15 downto 8);
-    lidi.BIN <= mRom.ROUT(23 downto 16);
-    lidi.CIN <= mRom.ROUT(31 downto 24);
+    lidi.OPIN <= mRom.ROUT(31 downto 24);
+    lidi.AIN <= mRom.ROUT(23 downto 16);
+    lidi.BIN <= mRom.ROUT(15 downto 8);
+    lidi.CIN <= mRom.ROUT(7 downto 0);
+
+    mReg.ADR_A <= lidi.BOUT(3 downto 0);
 
     diex.AIN <= lidi.AOUT;
     diex.OPIN <= lidi.OPOUT;
-    diex.BIN <= lidi.BOUT;
 
     exmem.AIN <= diex.AOUT;
     exmem.OPIN <= diex.OPOUT;
@@ -239,9 +250,20 @@ lreg : reg port map(    mReg.CLK,
     memre.OPIN <= exmem.OPOUT;
     memre.BIN <= exmem.BOUT;
 
-    mAlu.ADR_W <= memre.AOUT;
-    mAlu.DATA <= memre.B;
-    mReg.W <= '1' when (memre.OPOUT = X"06") else '0' ;
+    mReg.ADR_W <= memre.AOUT(3 downto 0);
+    mReg.DATA <= memre.BOUT;
+
+    -- LC post memrem
+    mReg.W <= '1' when (memre.OPOUT = X"06" or memre.OPOUT = X"05") else '0' ;
+    --MUX post lidi
+    diex.BIN <= mReg.QA when (lidi.OPOUT = X"05") else lidi.BOUT;
+
+    toto : process(CLK)
+    begin
+        if(rising_edge(CLK)) then
+            ip <= ip + '1';
+        end if;
+    end process;
 
 
 

@@ -17,11 +17,9 @@
 -- Additional Comments: 
 --
 ----------------------------------------------------------------------------------
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.std_logic_arith.ALL;
-use IEEE.std_logic_unsigned.ALL;
-
+library ieee ;
+    use ieee.std_logic_1164.all ;
+    use ieee.numeric_std.all ;
 
 
 -- Uncomment the following library declaration if using
@@ -52,20 +50,22 @@ architecture Behavioral of Reg is
 	signal registers : regb;
 begin
 	--Reading
-	QA <= registers(conv_integer(unsigned(ADR_A))) when (W='0');
-	QB <= registers(conv_integer(unsigned(ADR_B))) when (W='0');
+	QA <= registers(to_integer(unsigned(ADR_A))) when (W='0');
+	QB <= registers(to_integer(unsigned(ADR_B))) when (W='0');
 	
 	-- reset
 	process(CLK, RST,W)
 	begin
-		if RST='1' then
-			registers <= (X"00", X"00", X"00", X"00",
-				X"00", X"00", X"00", X"00",
-				X"00", X"00", X"00", X"00",
-				X"00", X"00", X"00", X"00");
-		end if;
-		if W='1' then
-			registers(conv_integer(unsigned(ADR_W))) <= DATA;
+		if(rising_edge(CLK)) then
+			if RST='1' then
+				registers <= (X"00", X"00", X"00", X"00",
+					X"00", X"00", X"00", X"00",
+					X"00", X"00", X"00", X"00",
+					X"00", X"00", X"00", X"00");
+			end if;
+			if W='1' then
+				registers(to_integer(unsigned(ADR_W))) <= DATA;
+			end if;
 		end if;
 	end process;
 	

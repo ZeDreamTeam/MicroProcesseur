@@ -10,7 +10,7 @@ SRC_VERILOG_$(d) 	:=
 PKG_$(d) 				 	:= xc6slx16-3-csg324
 
 # Top module
-TOP_$(d)				 	:= ram
+TOP_$(d)				 	:= system
 
 include $(d)/sources.mk
 

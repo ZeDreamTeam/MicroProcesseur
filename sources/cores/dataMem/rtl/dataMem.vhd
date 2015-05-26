@@ -34,11 +34,11 @@ use IEEE.std_logic_unsigned.ALL;
 entity DATA_MEM is
 	port(
 		ADDR : 		in  STD_LOGIC_VECTOR(7 downto 0);
-        IN : 		in 	STD_LOGIC_VECTOR(7 downto 0);
+        DIN : 		in 	STD_LOGIC_VECTOR(7 downto 0);
 		RW : 		in STD_LOGIC;
 		RST : 		in STD_LOGIC;
 		CLK : 		in STD_LOGIC;
-		OUT : 		out STD_LOGIC_VECTOR(7 downto 0)
+		DOUT : 		out STD_LOGIC_VECTOR(7 downto 0)
 	);
 end DATA_MEM;
 
