@@ -50,8 +50,10 @@ architecture Behavioral of Reg is
 	signal registers : regb;
 begin
 	--Reading
-	QA <= registers(to_integer(unsigned(ADR_A))) when (W='0');
-	QB <= registers(to_integer(unsigned(ADR_B))) when (W='0');
+	QA <= DATA when (W='1' and ADR_A = ADR_W) else
+		registers(to_integer(unsigned(ADR_A)));
+	QB <= DATA when (W='1' and ADR_B = ADR_W) else
+		registers(to_integer(unsigned(ADR_B)));
 	
 	-- reset
 	process(CLK, RST,W)

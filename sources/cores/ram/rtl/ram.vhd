@@ -17,10 +17,9 @@
 -- Additional Comments: 
 --
 ----------------------------------------------------------------------------------
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.std_logic_arith.ALL;
-use IEEE.std_logic_unsigned.ALL;
+library ieee ;
+    use ieee.std_logic_1164.all ;
+    use ieee.numeric_std.all ;
 
 
 
@@ -53,23 +52,15 @@ end Ram;
 architecture Behavioral of Ram is
     subtype word is std_logic_vector(WORD_SIZE-1 downto 0);
     type word_list is array(0 to MAX_WORDS-1) of word;
-    
-    signal memory : word_list;
-
+    signal memory : word_list := (0 => X"00", 1=>X"00",2=>X"FA",3=>X"CA",4=>X"00",5=>X"00",6=>X"00",7=>X"00",8=>X"00",9=>X"00", others => X"00");
 
 begin
-    process(CLK)
-    begin
-        if RST='1' then
-            memory <= (others => (others => '0'));
-        elsif RW='1' then
-            ROUT <= memory(conv_integer(unsigned(ADR)));
-        elsif RW='0' then 
-            memory(conv_integer(unsigned(ADR))) <= RIN;
-        end if;
-    end process;
+    memory <= (others => (others => '0')) when (RST = '1') else
+        RIN & memory(0 to MAX_WORDS-2) when (ADR = X"FF" and RW = '0') else
+        memory(1 to MAX_WORDS-1) & RIN when (ADR = X"00" and RW = '0') else
+        memory(0 to to_integer(unsigned(ADR))-1) & RIN & memory(to_integer(unsigned(ADR))+1 to MAX_WORDS-1) when (RW = '0');
 
+    ROUT <= memory(to_integer(unsigned(ADR))) when (RW = '1');
 
+   
 end Behavioral;
-
-

@@ -32,36 +32,35 @@ library ieee ;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity Rom is
-    generic(
-        MAX_WORDS : positive := 256;
-        WORD_SIZE : positive := 32
-    ); 
 
+
+entity PC is
     port(
         EN  :   in STD_LOGIC;
+        SEL :   in STD_LOGIC_VECTOR(1 downto 0);
         CLK :   in STD_LOGIC;
+        IZ :    in STD_LOGIC;
         ADR :   in STD_LOGIC_VECTOR(7 downto 0);
-        RIN :   in STD_LOGIC_VECTOR(WORD_SIZE-1 downto 0);
-        ROUT:   out STD_LOGIC_VECTOR(WORD_SIZE-1 downto 0)
+        COUT:   out unsigned(7 downto 0)
     );
 
-end Rom;
+end PC;
 
-architecture Behavioral of Rom is
-    subtype word is std_logic_vector(WORD_SIZE-1 downto 0);
-    type word_list is array(0 to MAX_WORDS-1) of word;
-    
-    signal instructionMemory : word_list := (0 => X"06011254", 1=>X"06021254",2=>X"03000201",3=>X"0B000000",4=>X"0B000000",5=>X"00000000",6=>X"00000000",7=>X"00000000",8=>X"0B000000",9=>X"00000000", others => X"00000000");
----AFC 3 nop ADD
+architecture Behavioral of PC is
+    signal currentAddress : unsigned(7 downto 0) := X"00";
 begin
+    COUT <= currentAddress;
     process(CLK)
     begin
         if(rising_edge(CLK)) then
-            if(EN = '1') then
-                ROUT <= instructionMemory(to_integer(unsigned(ADR)));
-            else 
-                ROUT <= RIN;
+            if(EN ='1') then
+                if(SEL = B"01") then
+                    currentAddress <= unsigned(ADR);
+                elsif(SEL = B"10" and IZ = '1') then
+                    currentAddress <= unsigned(ADR);
+                else
+                    currentAddress <= currentAddress + 1;
+                end if;
             end if;
         end if;
     end process;

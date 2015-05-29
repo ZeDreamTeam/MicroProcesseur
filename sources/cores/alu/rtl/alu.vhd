@@ -17,10 +17,9 @@
 -- Additional Comments: 
 --
 ----------------------------------------------------------------------------------
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.std_logic_arith.ALL;
-use IEEE.std_logic_unsigned.ALL;
+library ieee ;
+    use ieee.std_logic_1164.all ;
+    use ieee.numeric_std.all ;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -32,12 +31,13 @@ use IEEE.std_logic_unsigned.ALL;
 --use UNISIM.VComponents.all;
 
 entity ALU is
+
 	port(
 		CLK : 		in 	STD_LOGIC;
-		A : 		in  STD_LOGIC_VECTOR(7 downto 0);
-        B : 		in 	STD_LOGIC_VECTOR(7 downto 0);
-		Ctrl_Alu : 	in STD_LOGIC_VECTOR(2 downto 0);
-		S : 		out STD_LOGIC_VECTOR(7 downto 0);
+		A : 		in 	unsigned(7 downto 0) ;
+		B : 		in 	unsigned(7 downto 0) ;
+		Ctrl_Alu : 	in 	STD_LOGIC_VECTOR(2 downto 0);
+		S : 		out	STD_LOGIC_VECTOR(7 downto 0);
 		N : 		out STD_LOGIC;
 		O : 		out STD_LOGIC;
 		Z : 		out STD_LOGIC;
@@ -46,25 +46,25 @@ entity ALU is
 end ALU;
 
 architecture Behavioral of ALU is
-	signal tmp : STD_LOGIC_VECTOR(15 downto 0);
+	signal tmp : unsigned(15 downto 0);
 begin
-	tmp <= (X"00" & A) + B when (Ctrl_Alu = X"01") else
-		(X"00" & A)- B when (Ctrl_Alu = X"02") else
-		A * B when (Ctrl_Alu = X"03");
+	tmp <= (X"00" & A) + B when (Ctrl_Alu = B"001") else
+		(X"00" & A)- B when (Ctrl_Alu = B"010") else
+		A * B when (Ctrl_Alu = B"011");
 
-	Z <= '1' when (tmp = X"0000") else
+	Z <= '1' when (tmp = "0000") else
 		'0' ;
-	N <= '1' when (Ctrl_Alu = X"02" and B > A) else 
+	N <= '1' when (Ctrl_Alu = B"010" and B > A) else 
 		'0' ;
 	
 
-	O <= '1' when (tmp > X"00FF" and Ctrl_Alu /= X"02") else
+	O <= '1' when (tmp > X"00FF" and Ctrl_Alu /= B"010") else
 		 '0' ;
 
-	C <= '1' when (Ctrl_Alu = X"01" and tmp > X"00FF") else
+	C <= '1' when (Ctrl_Alu = B"001" and tmp > X"00FF") else
 		 '0' ;
 
-	S <= tmp(7 downto 0);
+	S <= std_logic_vector(tmp(7 downto 0));
 end Behavioral;
 
 
