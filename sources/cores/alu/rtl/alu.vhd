@@ -56,8 +56,6 @@ begin
 		'0' ;
 	N <= '1' when (Ctrl_Alu = B"010" and B > A) else 
 		'0' ;
-	
-
 	O <= '1' when (tmp > X"00FF" and Ctrl_Alu /= B"010") else
 		 '0' ;
 
