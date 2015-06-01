@@ -34,7 +34,6 @@ entity ALEAMANAGER is
 
 	port(
 		CLK : 	in 	STD_LOGIC;
-		DROP: 	in 	STD_LOGIC;
 		RIN : 	in 	STD_LOGIC_VECTOR(31 downto 0);
 		DAIN : 	in 	STD_LOGIC_VECTOR(7 downto 0);
 		EAIN : 	in 	STD_LOGIC_VECTOR(7 downto 0);
@@ -123,18 +122,8 @@ begin
 			)
 			or
 			(
-				RIN(31 downto 24) = X"0B" and
-				send1nop = 0
-
-			) 
-			or
-			(
-				DROP = '1'
-			)
-			or
-			(
-				RIN(31 downto 24) = X"0A"
-			)
+				RIN(31 downto 24) = X"0B"
+			)  
 		)
 		else
 			RIN;

@@ -42,6 +42,7 @@ end system;
 
 architecture Behavioral of system is
     component aleaManager port( CLK :   in  STD_LOGIC;
+                                DROP:   in STD_LOGIC;
                                 RIN :  in  STD_LOGIC_VECTOR(31 downto 0);
                                 DAIN :  in  STD_LOGIC_VECTOR(7 downto 0);
                                 EAIN :  in  STD_LOGIC_VECTOR(7 downto 0);
@@ -55,7 +56,8 @@ architecture Behavioral of system is
                         CLK :   in STD_LOGIC;
                         IZ :    in STD_LOGIC;
                         ADR :   in STD_LOGIC_VECTOR(7 downto 0);
-                        COUT:   out unsigned(7 downto 0)
+                        COUT:   out unsigned(7 downto 0);
+                        DROP:   out STD_LOGIC
                         );
     end component;
     component pipeline  port(   CLK :       in  STD_LOGIC;
@@ -111,9 +113,11 @@ architecture Behavioral of system is
         IZ :    STD_LOGIC;
         ADR :   STD_LOGIC_VECTOR(7 downto 0);
         COUT:   unsigned(7 downto 0);
+        DROP:   STD_LOGIC;
     end record;
     type aleaManagerT is record 
         CLK :   STD_LOGIC;
+        DROP:   STD_LOGIC;
         RIN :  STD_LOGIC_VECTOR(31 downto 0);
         DAIN :  STD_LOGIC_VECTOR(7 downto 0);
         EAIN :  STD_LOGIC_VECTOR(7 downto 0);
@@ -188,6 +192,7 @@ architecture Behavioral of system is
 begin
   -- Composants
   lAleaManager : aleaManager port map(mAleaM.CLK,
+                                        mAleaM.DROP,
                                         mAleaM.RIN,
                                         mAleaM.DAIN,
                                         mAleaM.EAIN,
@@ -201,7 +206,8 @@ begin
                     mPC.CLK,
                     mPC.IZ,
                     mPC.ADR,
-                    mPC.COUT);
+                    mPC.COUT,
+                    mPC.DROP);
   llidi : pipeline port map(lidi.CLK,
                         lidi.AIN,
                         lidi.BIN,
@@ -293,6 +299,7 @@ lreg : reg port map(    mReg.CLK,
     mAleaM.EAIN <= diex.AOUT;
     mAleaM.DOPIN <= lidi.OPOUT;
     mAleaM.EOPIN <= diex.OPOUT;
+    mAleaM.DROP <= mPC.DROP;
 
     --ROM MAP
     mRom.ADR <= std_logic_vector(mPC.COUT);
