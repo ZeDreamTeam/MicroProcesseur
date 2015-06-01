@@ -24,3 +24,10 @@ source xilinx.sh
 make
 make binary/system/system_beh.runisim
 ```
+
+##Links
+See the other part of the project :
+- [Compiler](https://github.com/ZeDreamTeam/Compilateur)
+- [French report](https://github.com/ZeDreamTeam/SystemeInfo_rapport)
+
+
