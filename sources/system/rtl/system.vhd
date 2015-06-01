@@ -55,7 +55,8 @@ architecture Behavioral of system is
                         CLK :   in STD_LOGIC;
                         IZ :    in STD_LOGIC;
                         ADR :   in STD_LOGIC_VECTOR(7 downto 0);
-                        COUT:   out unsigned(7 downto 0));
+                        COUT:   out unsigned(7 downto 0)
+                        );
     end component;
     component pipeline  port(   CLK :       in  STD_LOGIC;
                                 AIN :       in  STD_LOGIC_VECTOR(7 downto 0);

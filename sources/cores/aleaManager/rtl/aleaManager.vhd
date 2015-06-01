@@ -45,6 +45,7 @@ entity ALEAMANAGER is
 end ALEAMANAGER;
 
 architecture Behavioral of ALEAMANAGER is
+signal send1nop : STD_LOGIC := '0';
 begin
 	ROUT <= X"00000000" when 
 		(
@@ -118,6 +119,10 @@ begin
 						)
 					) 
 				)
+			)
+			or
+			(
+				RIN(31 downto 24) = X"0B"
 			)  
 		)
 		else
@@ -195,10 +200,26 @@ begin
 						)
 					) 
 				)
+			)
+			or
+			(
+				RIN(31 downto 24) = X"0B" and
+				send1nop = '0'
 			)  
 		)
 		else
 			'1';
+			
+	process(CLK)
+    begin
+        if(rising_edge(CLK)) then
+            if((send1nop ='0') and (RIN(31 downto 24) = X"0B")) then
+                send1nop <= '1';
+            else 
+                send1nop <= '0';
+            end if;
+        end if;
+    end process;
 			
 end Behavioral;
 

@@ -41,7 +41,8 @@ entity PC is
         CLK :   in STD_LOGIC;
         IZ :    in STD_LOGIC;
         ADR :   in STD_LOGIC_VECTOR(7 downto 0);
-        COUT:   out unsigned(7 downto 0)
+        COUT:   out unsigned(7 downto 0);
+        WT1:   out STD_LOGIC
     );
 
 end PC;
@@ -57,8 +58,17 @@ architecture Behavioral of PC is
             if(EN ='1') then
                 if(SEL = B"01") then
                     currentAddress <= unsigned(ADR);
-                elsif(SEL = B"10" and IZ = '1') then
-                        currentAddress <= unsigned(ADR);
+                elsif(SEL = B"10")then
+                    if(wait1 /= 2) then
+                        wait1 <= wait1 + 1;
+                        WT1 <= '1';
+                    else
+                        WT1 <= '0';
+                        if(IZ ='1') then
+                            currentAddress <= unsigned(ADR);
+                            wait1 <= 0;
+                        end if;
+                    end if;
                 else
                     currentAddress <= currentAddress + 1;
                 end if;
